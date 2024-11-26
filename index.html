@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Animated text svg</title>
+</head>
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+<svg viewBox="0 0 800 200">
+  <!-- Definieer een patroon voor de tekst -->
+  <defs>
+    <pattern id="imagePattern" patternUnits="userSpaceOnUse" width="400" height="400">
+      <image href="https://iili.io/2aZNbEJ.png" x="0" y="0" width="400" height="400" />
+    </pattern>
+
+    <!-- Definieer gloedfilter -->
+    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blurred" />
+      <feOffset in="blurred" dx="0" dy="0" result="offsetBlurred" />
+      <feFlood flood-color="cyan" result="glowColor" />
+      <feComposite in="glowColor" in2="offsetBlurred" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Tekst waarop het patroon en de gloed worden toegepast -->
+  <text id="animatedText" x="50" y="150">Mr.Wahab</text>
+</svg>
+    <script src="./main.js"></script>
+</body>
+</html>
